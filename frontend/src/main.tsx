@@ -1,5 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import App from './App.tsx'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './index.css'
+import HomePage from './pages/HomePage.tsx';
+import ProductPage from './pages/ProductPage.tsx';
+
 import {
   createBrowserRouter,
   RouterProvider,
@@ -11,16 +17,12 @@ import {
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
-      {/*<Route path="contact" element={<Contact />} />*/}
-      
+      <Route index={true} element={<HomePage/>}></Route> 
+      <Route path="product/:slug" element={<ProductPage/>}></Route>
     </Route>
   )
 );
 
-
-import App from './App.tsx'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
